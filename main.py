@@ -21,6 +21,8 @@ LINE = (
 
 
 def main() -> None:
+    if not LINE or "\n" in LINE or len(LINE) > 200:
+        raise ValueError("entry line must be one non-empty line of at most 200 chars")
     os.makedirs("/output", exist_ok=True)
     with open("/output/entry.txt", "w", encoding="utf-8") as f:
         f.write(LINE)
